@@ -22,4 +22,4 @@ This project migrates the student dormitory management system from a client-side
 
 ## Team Roles & Issue Tracking
 - **Developer 1 (Islam):** Backend Core Architecture, Storage Engine, and Write Operations (POST, PATCH, DELETE).
-- **Developer 2 (Partner):** Query & Filtering Engine (GET with params, QUERY method), and Frontend Stateless Integration.
+- **Developer 2 (afsar):** Query & Filtering Engine (GET with params, QUERY method), and Frontend Stateless Integration.
