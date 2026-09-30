@@ -1,26 +1,40 @@
+import json
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from .services import get_filtered_students, get_student
-import json 
+from .services import (
+    get_filtered_students,
+    get_student,
+    create_student,
+    edit_student,
+    remove_student
+)
 
-@api_view(['GET', 'QUERY'])
+
+@api_view(['GET', 'QUERY', 'POST'])
+
 def student_list(request):
-    """
-    GET /api/requests - URL query params (request.query_params)
-    QUERY /api/requests - Body JSON (request.body)
-    """
+
+    # create stedent
+    if request.method == 'POST':
+        try:
+            student = create_student(request.data)
+            return Response(student, status=status.HTTP_201_CREATED)
+        except ValueError as err:
+            if "already exists" in str(err):
+                return Response({"error": str(err)}, status=status.HTTP_409_CONFLICT)
+            return Response({"error": str(err)}, status=status.HTTP_400_BAD_REQUEST)
+    
+    # get / filter students
     if request.method == 'GET':
         filters = request.query_params
     elif request.method == 'QUERY':
-        # manually json persing for custom method
+        # parse json body manualy
         try:
-            # will decode if body not empty ,otherwise empty dictionary
             filters = json.loads(request.body.decode('utf-8')) if request.body else {}
         except json.JSONDecodeError:
-            # As Unified error format 400 Bad Request
             return Response(
-                {"error": "wrong JSON formate!"}, 
+                {"error": "invalid json format"}, 
                 status=status.HTTP_400_BAD_REQUEST
             )
     else:
@@ -28,19 +42,31 @@ def student_list(request):
 
     students = get_filtered_students(filters)
     return Response(students, status=status.HTTP_200_OK)
-@api_view(['GET'])
-def student_detail(request, pk):
-    """
-    GET /api/requests/:id
-    search specific student by ISU ID ,if not found than return 404 as Unified Error Format 
-    """
-    student = get_student(pk)
+
+
+@api_view(['GET', 'PATCH', 'DELETE'])
+
+def student_detail(request, isu_id):
     
+    # delete stedent
+    if request.method == 'DELETE':
+            success = remove_student(isu_id)
+            if not success:
+                return Response({"error": "student not found"}, status=status.HTTP_404_NOT_FOUND)
+            
+            return Response(status=status.HTTP_204_NO_CONTENT)
+
+    # update student
+    if request.method == 'PATCH':
+        student = edit_student(isu_id, request.data)
+        if not student:
+            return Response({"error": "student not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        return Response(student, status=status.HTTP_200_OK)
+    
+    # get student
+    student = get_student(isu_id)
     if not student:
-        # Unified error response format
-        return Response(
-            {"error": "student not found"}, 
-            status=status.HTTP_404_NOT_FOUND
-        )
+        return Response({"error": "student not found"}, status=status.HTTP_404_NOT_FOUND)
         
     return Response(student, status=status.HTTP_200_OK)
