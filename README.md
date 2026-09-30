@@ -1,29 +1,64 @@
-# ITMO University - Web Programming Lab №1
+# ITMO University - Web Programming Lab №2
 
-A vanilla frontend interface for a **Student Management System** built without frameworks as part of the Web Programming course.
+A student dormitory management system built for the Web Development course at ITMO University. 
 
-##  Features
+This version migrates the project from the previous client-side (cookies) approach to a full client-server stateless architecture with a Python/Django REST API backend and JSON file persistence.
 
-- **Student List Table:** Displays core student information with support for adding, editing, deleting, and viewing detailed dossiers.
-- **Dynamic Add/Edit Form:** Form fields for Full Name, Group, ISU ID, Dormitory Number, Room, Check-in Date, Foreigner status, and Notes. Includes automatic data population when editing.
-- **Form Validation:** Combined built-in HTML attributes and custom JavaScript logic for empty fields and correct data types.
-- **Student Dossier:** Dedicated view to inspect comprehensive details of a specific student.
-- **Data Persistence:** Student records are securely managed and stored using browser **Cookies**.
-- **Adaptive Design:** Minimal, responsive layout tailored for various screen sizes.
-- **Custom Favicon:** A cat icon reflecting the development team's character.
+## Key Changes from Lab 1
 
-##  Technologies Used
+- **Stateless Backend:** All business logic, validations, and state handling moved from browser cookies to the server.
+- **RESTful Endpoints:** Standardized HTTP methods (`GET`, `POST`, `PATCH`, `DELETE`) with appropriate status codes (`200`, `201`, `204`, `400`, `404`, `409`).
+- **Custom QUERY Method:** Implemented a `QUERY` method accepting a JSON body for advanced student filtering when query parameters grow large.
+- **Three-Layer Architecture:** Codebase strictly separated into storage (`storage.py`), business logic (`services.py`), and presentation (`views.py`).
 
-- **HTML5** (Semantic structure & validation attributes)
-- **CSS3** (Responsive styling and minimal layout)
-- **JavaScript (Vanilla ES6+)** (DOM manipulation, business logic separation, and Cookie management)
+## Tech Stack
 
-##  Project Team & Workflow
+- **Backend:** Python 3, Django, Django REST Framework, django-cors-headers
+- **Storage:** JSON flat-file storage (`db.json`)
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+ Fetch API)
 
-This project is developed collaboratively using Git/GitHub with a feature-branch workflow and issue tracking.
+## Architecture Overview
 
-##  How to Run
+```text
+backend/
+├── server_config/       # Django project configuration & CORS settings
+└── students_api/        # Application logic
+    ├── storage.py       # Data access layer (reads/writes db.json)
+    ├── services.py      # Business logic & validations (ISU ID checks)
+    ├── views.py         # HTTP request handlers & status code mapping
+    └── urls.py          # Route definitions (/api/requests)
+```
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/islemAZ360/itmo-web-lab1-student-manager.git](https://github.com/islemAZ360/itmo-web-lab1-student-manager.git)
+## API Specification
+
+| Method | Endpoint | Description | Status Codes |
+|--------|----------|-------------|--------------|
+| `GET` | `/api/requests` | List students with optional query filters (group, dormitory) | `200` |
+| `QUERY` | `/api/requests` | Filter students via JSON body payload | `200`, `400` |
+| `GET` | `/api/requests/:id` | Fetch specific student details by ISU ID | `200`, `404` |
+| `POST` | `/api/requests` | Register a new student (validates unique ISU ID) | `201`, `400`, `409` |
+| `PATCH` | `/api/requests/:id` | Update student record partially | `200`, `404` |
+| `DELETE` | `/api/requests/:id` | Remove student record | `204`, `404` |
+
+## Getting Started
+
+### 1. Backend Setup
+
+Make sure Python is installed, then install dependencies and run the server:
+
+```powershell
+# Navigate to the backend directory
+cd backend
+
+# Install requirements
+pip install django djangorestframework django-cors-headers
+
+# Start development server
+python manage.py runserver
+```
+
+The API will be available at `http://127.0.0.1:8000/api/requests`.
+
+### 2. Frontend Setup
+
+Open `frontend/index.html` directly in your browser or run it with Live Server in VS Code (runs on `http://127.0.0.1:5500`).
