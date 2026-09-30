@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,27 @@
     <link rel="icon" type="image/svg+xml" href="assets/cat.svg">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Student Management System</h1>
+        <!-- Student Filter Section -->
+        <div class="filter-section"
+            style="background: #fafafa; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd;">
+            <h3 style="margin-top: 0;">student filter</h3>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="filter-group" placeholder="Group (e.g. M3301)"
+                    style="flex: 1; min-width: 150px; margin-bottom: 0;">
+                <input type="number" id="filter-dormitory" placeholder="Dormitory (e.g. 8)"
+                    style="flex: 1; min-width: 150px; margin-bottom: 0;">
+
+                <!-- fitering button on GET method-->
+                <button id="filter-get-btn">Search (GET)</button>
+
+                <!-- filtering button on QUERY method (for issue 5) -->
+                <button id="filter-query-btn">Search (QUERY)</button>
+            </div>
+        </div>
 
         <!--header-->
         <button id="show-add-form-btn" style="margin-bottom: 15px;">Add Student</button>
@@ -45,7 +64,7 @@
             <p><strong>Foreign Student:</strong><span id="dossier-foreign"></span></p>
             <p><strong>Notes:</strong> <span id="dossier-notes"></span></p>
             <br>
-            <button id="close-dossier-btn" >Close</button>
+            <button id="close-dossier-btn">Close</button>
         </div>
 
         <!--add / edit-->
@@ -55,25 +74,22 @@
                 <!--full name-->
                 <div class="form-group">
                     <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" required maxlength="50" 
-                           pattern="^[A-Za-zА-Яа-яЁё\s\-]+$" 
-                           title="Letters, spaces, and hyphens only">
+                    <input type="text" id="fullName" required maxlength="50" pattern="^[A-Za-zА-Яа-яЁё\s\-]+$"
+                        title="Letters, spaces, and hyphens only">
                 </div>
 
                 <!--group -->
                 <div class="form-group">
                     <label for="group">Group *</label>
-                    <input type="text" id="group" required maxlength="5"
-                            pattern="^[A-Z]\d{4}$"
-                            title="One Capital letter followed by 4 digits (like : P3224)">
+                    <input type="text" id="group" required maxlength="5" pattern="^[A-Z]\d{4}$"
+                        title="One Capital letter followed by 4 digits (like : P3224)">
                 </div>
 
                 <!--isuId-->
                 <div class="form-group">
                     <label for="isuId">ISU ID (6 digits) *</label>
-                    <input type="text" id="isuId" required 
-                            pattern="^\d{6}$" maxlength="6" 
-                            title="Must be exactly 6 digits">
+                    <input type="text" id="isuId" required pattern="^\d{6}$" maxlength="6"
+                        title="Must be exactly 6 digits">
                 </div>
 
                 <!--dormitory-->
@@ -107,14 +123,14 @@
                     <textarea id="notes" rows="3" maxlength="150"></textarea>
                 </div>
 
-                <button type="submit" >Save</button>
-                <button type="button" id="cancel-form-btn" >Cancel</button>
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-form-btn">Cancel</button>
             </form>
         </div>
     </div>
 
-    <!--Scripts loaded traditionally without modules-->
-    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
