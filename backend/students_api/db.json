@@ -31,12 +31,72 @@
     },
     {
         "fullName": "Ifsdfsdf",
-        "group": "K2442",
+        "group": "K2444",
         "isuId": "427657",
         "dormitoryNumber": "52",
         "room": "5665",
         "accommodationPeriod": "2025-02-21",
         "isInternational": true,
         "notes": "sdfsdfsdf"
+    },
+    {
+        "fullName": "Alexey Smirnov",
+        "group": "M3301",
+        "isuId": "365412",
+        "dormitoryNumber": "8",
+        "room": "314",
+        "accommodationPeriod": "2025-09-01",
+        "isInternational": false,
+        "notes": "Quiet room requested"
+    },
+    {
+        "fullName": "Maria Ivanova",
+        "group": "M3301",
+        "isuId": "378945",
+        "dormitoryNumber": "8",
+        "room": "315",
+        "accommodationPeriod": "2025-09-01",
+        "isInternational": false,
+        "notes": "Allergic to dust"
+    },
+    {
+        "fullName": "Dmitry Petrov",
+        "group": "P3224",
+        "isuId": "412589",
+        "dormitoryNumber": "21",
+        "room": "502",
+        "accommodationPeriod": "2025-08-25",
+        "isInternational": false,
+        "notes": "Floor monitor"
+    },
+    {
+        "fullName": "Anna Kuznetsova",
+        "group": "P3224",
+        "isuId": "439812",
+        "dormitoryNumber": "51",
+        "room": "410",
+        "accommodationPeriod": "2025-09-10",
+        "isInternational": false,
+        "notes": "Student council member"
+    },
+    {
+        "fullName": "Carlos Mendes",
+        "group": "P3278",
+        "isuId": "481236",
+        "dormitoryNumber": "52",
+        "room": "712",
+        "accommodationPeriod": "2025-02-15",
+        "isInternational": true,
+        "notes": "Exchange student"
+    },
+    {
+        "fullName": "gdf gdf",
+        "group": "P4324",
+        "isuId": "423432",
+        "dormitoryNumber": "23",
+        "room": "3232",
+        "accommodationPeriod": "2026-10-23",
+        "isInternational": false,
+        "notes": ""
     }
 ]
