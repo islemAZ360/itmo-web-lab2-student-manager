@@ -14,20 +14,19 @@
     <div class="container">
         <h1>Student Management System</h1>
         <!-- Student Filter Section -->
-        <div class="filter-section"
-            style="background: #fafafa; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd;">
-            <h3 style="margin-top: 0;">student filter</h3>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <input type="text" id="filter-group" placeholder="Group (e.g. M3301)"
-                    style="flex: 1; min-width: 150px; margin-bottom: 0;">
-                <input type="number" id="filter-dormitory" placeholder="Dormitory (e.g. 8)"
-                    style="flex: 1; min-width: 150px; margin-bottom: 0;">
-
-                <!-- fitering button on GET method-->
-                <button id="filter-get-btn">Search (GET)</button>
-
-                <!-- filtering button on QUERY method (for issue 5) -->
-                <button id="filter-query-btn">Search (QUERY)</button>
+        <div class="filter-box">
+            <h3>Student Filter</h3>
+            <div class="filter-inputs">
+                <input type="text" id="filter-name" placeholder="Full Name (e.g. Islam)" />
+                <input type="text" id="filter-group" placeholder="Group (e.g. M3301)" />
+                <input type="text" id="filter-dormitory" placeholder="Dormitory (e.g. 8)" />
+                <input type="text" id="filter-room" placeholder="Room (e.g. 314)" />
+                <input type="text" id="filter-isu" placeholder="ISU ID (e.g. 470449)" />
+            </div>
+            <div class="filter-buttons">
+                <button id="btn-search-get">Search (GET)</button>
+                <button id="btn-search-query">Search (QUERY)</button>
+                <button id="btn-reset-filter">Reset</button>
             </div>
         </div>
 

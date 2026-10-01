@@ -10,36 +10,6 @@
         "notes": "dfhfh"
     },
     {
-        "fullName": "Islam Azai",
-        "group": "P3278",
-        "isuId": "564654",
-        "dormitoryNumber": "52",
-        "room": "7745",
-        "accommodationPeriod": "2025-02-23",
-        "isInternational": true,
-        "notes": "sdfsdfsdf"
-    },
-    {
-        "fullName": "fsdsdfsdf",
-        "group": "P3547",
-        "isuId": "564585",
-        "dormitoryNumber": "21",
-        "room": "215",
-        "accommodationPeriod": "2025-02-21",
-        "isInternational": true,
-        "notes": "dsfsdfsdf"
-    },
-    {
-        "fullName": "Ifsdfsdf",
-        "group": "K2444",
-        "isuId": "427657",
-        "dormitoryNumber": "52",
-        "room": "5665",
-        "accommodationPeriod": "2025-02-21",
-        "isInternational": true,
-        "notes": "sdfsdfsdf"
-    },
-    {
         "fullName": "Alexey Smirnov",
         "group": "M3301",
         "isuId": "365412",
@@ -90,13 +60,43 @@
         "notes": "Exchange student"
     },
     {
-        "fullName": "gdf gdf",
-        "group": "P4324",
-        "isuId": "423432",
+        "fullName": "Yusuf Rahman",
+        "group": "P3547",
+        "isuId": "500031",
+        "dormitoryNumber": "21",
+        "room": "215",
+        "accommodationPeriod": "2025-03-12",
+        "isInternational": true,
+        "notes": "Needs lower bunk"
+    },
+    {
+        "fullName": "Elena Morozova",
+        "group": "K2444",
+        "isuId": "500032",
         "dormitoryNumber": "23",
-        "room": "3232",
-        "accommodationPeriod": "2026-10-23",
+        "room": "323",
+        "accommodationPeriod": "2025-04-18",
         "isInternational": false,
-        "notes": ""
+        "notes": "No special requests"
+    },
+    {
+        "fullName": "Daniel Garcia",
+        "group": "P4324",
+        "isuId": "500033",
+        "dormitoryNumber": "52",
+        "room": "604",
+        "accommodationPeriod": "2025-05-22",
+        "isInternational": true,
+        "notes": "Late arrival expected"
+    },
+    {
+        "fullName": "Olga Sokolova",
+        "group": "B2451",
+        "isuId": "500034",
+        "dormitoryNumber": "8",
+        "room": "721",
+        "accommodationPeriod": "2025-06-05",
+        "isInternational": false,
+        "notes": "Prefers non-smoking floor"
     }
 ]
