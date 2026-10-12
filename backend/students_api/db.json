@@ -98,5 +98,15 @@
         "accommodationPeriod": "2025-06-05",
         "isInternational": false,
         "notes": "Prefers non-smoking floor"
+    },
+    {
+        "fullName": "dkjfkdsfj djfk",
+        "group": "P3278",
+        "isuId": "272575",
+        "dormitoryNumber": "1",
+        "room": "7773",
+        "accommodationPeriod": "2025-05-13",
+        "isInternational": true,
+        "notes": "<script>alert('XSS')</script>"
     }
 ]
