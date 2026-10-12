@@ -10,33 +10,103 @@
         "notes": "dfhfh"
     },
     {
-        "fullName": "Islam Azai",
-        "group": "P3278",
-        "isuId": "564654",
-        "dormitoryNumber": "52",
-        "room": "7745",
-        "accommodationPeriod": "2025-02-23",
-        "isInternational": true,
-        "notes": "sdfsdfsdf"
+        "fullName": "Alexey Smirnov",
+        "group": "M3301",
+        "isuId": "365412",
+        "dormitoryNumber": "8",
+        "room": "314",
+        "accommodationPeriod": "2025-09-01",
+        "isInternational": false,
+        "notes": "Quiet room requested"
     },
     {
-        "fullName": "fsdsdfsdf",
+        "fullName": "Maria Ivanova",
+        "group": "M3301",
+        "isuId": "378945",
+        "dormitoryNumber": "8",
+        "room": "315",
+        "accommodationPeriod": "2025-09-01",
+        "isInternational": false,
+        "notes": "Allergic to dust"
+    },
+    {
+        "fullName": "Dmitry Petrov",
+        "group": "P3224",
+        "isuId": "412589",
+        "dormitoryNumber": "21",
+        "room": "502",
+        "accommodationPeriod": "2025-08-25",
+        "isInternational": false,
+        "notes": "Floor monitor"
+    },
+    {
+        "fullName": "Anna Kuznetsova",
+        "group": "P3224",
+        "isuId": "439812",
+        "dormitoryNumber": "51",
+        "room": "410",
+        "accommodationPeriod": "2025-09-10",
+        "isInternational": false,
+        "notes": "Student council member"
+    },
+    {
+        "fullName": "Carlos Mendes",
+        "group": "P3278",
+        "isuId": "481236",
+        "dormitoryNumber": "52",
+        "room": "712",
+        "accommodationPeriod": "2025-02-15",
+        "isInternational": true,
+        "notes": "Exchange student"
+    },
+    {
+        "fullName": "Yusuf Rahman",
         "group": "P3547",
-        "isuId": "564585",
+        "isuId": "500031",
         "dormitoryNumber": "21",
         "room": "215",
-        "accommodationPeriod": "2025-02-21",
+        "accommodationPeriod": "2025-03-12",
         "isInternational": true,
-        "notes": "dsfsdfsdf"
+        "notes": "Needs lower bunk"
     },
     {
-        "fullName": "Ifsdfsdf",
-        "group": "K2442",
-        "isuId": "427657",
+        "fullName": "Elena Morozova",
+        "group": "K2444",
+        "isuId": "500032",
+        "dormitoryNumber": "23",
+        "room": "323",
+        "accommodationPeriod": "2025-04-18",
+        "isInternational": false,
+        "notes": "No special requests"
+    },
+    {
+        "fullName": "Daniel Garcia",
+        "group": "P4324",
+        "isuId": "500033",
         "dormitoryNumber": "52",
-        "room": "5665",
-        "accommodationPeriod": "2025-02-21",
+        "room": "604",
+        "accommodationPeriod": "2025-05-22",
         "isInternational": true,
-        "notes": "sdfsdfsdf"
+        "notes": "Late arrival expected"
+    },
+    {
+        "fullName": "Olga Sokolova",
+        "group": "B2451",
+        "isuId": "500034",
+        "dormitoryNumber": "8",
+        "room": "721",
+        "accommodationPeriod": "2025-06-05",
+        "isInternational": false,
+        "notes": "Prefers non-smoking floor"
+    },
+    {
+        "fullName": "dkjfkdsfj djfk",
+        "group": "P3278",
+        "isuId": "272575",
+        "dormitoryNumber": "1",
+        "room": "7773",
+        "accommodationPeriod": "2025-05-13",
+        "isInternational": true,
+        "notes": "<script>alert('XSS')</script>"
     }
 ]

@@ -24,44 +24,73 @@ document.addEventListener("DOMContentLoaded", () => {
     // submit form
     document.getElementById("student-form").addEventListener("submit", handleFormSubmit);
 
-    // --- filtering event(Issue #4 & #5) ---
-    const filterGetBtn = document.getElementById('filter-get-btn');
-    const filterQueryBtn = document.getElementById('filter-query-btn');
+// --- filtering event
+    const filterGetBtn = document.getElementById('filter-get-btn') || document.getElementById('btn-search-get');
+    const filterQueryBtn = document.getElementById('filter-query-btn') || document.getElementById('btn-search-query');
+    const filterResetBtn = document.getElementById('filter-reset-btn') || document.getElementById('btn-reset-filter');
 
-    if (filterGetBtn && filterQueryBtn) {
-        // GET Request Filter
+    function getFilterValues() {
+        return {
+            fullName: document.getElementById('filter-name')?.value.trim() || "",
+            group: document.getElementById('filter-group')?.value.trim() || "",
+            dormitory: document.getElementById('filter-dormitory')?.value.trim() || "",
+            room: document.getElementById('filter-room')?.value.trim() || "",
+            isuId: document.getElementById('filter-isu')?.value.trim() || ""
+        };
+    }
+
+    //  GET Request Filter
+    if (filterGetBtn) {
         filterGetBtn.addEventListener('click', () => {
-            const group = document.getElementById('filter-group').value.trim();
-            const dormitory = document.getElementById('filter-dormitory').value.trim();
-            
+            const f = getFilterValues();
             const params = new URLSearchParams();
-            if (group) params.append('group', group);
-            if (dormitory) params.append('dormitory', dormitory);
-            
+
+            if (f.fullName) params.append('fullName', f.fullName);
+            if (f.group) params.append('group', f.group);
+            if (f.dormitory) params.append('dormitory', f.dormitory);
+            if (f.room) params.append('room', f.room);
+            if (f.isuId) params.append('isuId', f.isuId);
+
             const queryString = params.toString() ? `?${params.toString()}` : "";
             renderTable(queryString);
         });
+    }
 
-        // QUERY Request Filter
+    //  QUERY Request Filter
+    if (filterQueryBtn) {
         filterQueryBtn.addEventListener('click', async () => {
-            const group = document.getElementById('filter-group').value.trim();
-            const dormitory = document.getElementById('filter-dormitory').value.trim();
-            
+            const f = getFilterValues();
             const filters = {};
-            if (group) filters.group = group;
-            if (dormitory) filters.dormitory = dormitory;
-            
+
+            if (f.fullName) filters.fullName = f.fullName;
+            if (f.group) filters.group = f.group;
+            if (f.dormitory) filters.dormitory = f.dormitory;
+            if (f.room) filters.room = f.room;
+            if (f.isuId) filters.isuId = f.isuId;
+
             try {
                 const students = await fetchStudentsWithQueryMethod(filters);
                 updateTableHTML(students);
             } catch (error) {
                 console.error("QUERY Filter Error:", error);
-                alert("There was a problem filtering the data.!");
+                alert("There was a problem filtering the data!");
             }
         });
     }
-});
 
+    // Reset Filter Button
+    if (filterResetBtn) {
+        filterResetBtn.addEventListener('click', () => {
+            if (document.getElementById('filter-name')) document.getElementById('filter-name').value = "";
+            if (document.getElementById('filter-group')) document.getElementById('filter-group').value = "";
+            if (document.getElementById('filter-dormitory')) document.getElementById('filter-dormitory').value = "";
+            if (document.getElementById('filter-room')) document.getElementById('filter-room').value = "";
+            if (document.getElementById('filter-isu')) document.getElementById('filter-isu').value = "";
+            
+            renderTable(); 
+        });
+    } 
+});
 // fetch and render table rows
 async function renderTable(queryString = "") {
     const tableBody = document.getElementById("student-body");
@@ -76,7 +105,7 @@ async function renderTable(queryString = "") {
     }
 }
 
-// helper function to update HTML table
+// helper function (update HTML table)
 function updateTableHTML(students) {
     const tableBody = document.getElementById("student-body");
     tableBody.innerHTML = "";
@@ -181,10 +210,9 @@ async function handleFormSubmit(e) {
 
         if (response.ok) {
             closeForm();
-            renderTable(); // Refresh table from server
+            renderTable(); 
         } else {
             const errData = await response.json();
-            // It will issue an alert if an HTTP Code 409 (Conflict) or any other error occurs.
             alert(errData.error || "operation failed!"); 
         }
     } catch (error) {
@@ -222,10 +250,10 @@ async function viewStudent(isu) {
 async function removeStudent(isu) {
     if (confirm(`Are you sure you want to delete student with ISU ${isu}?`)) {
         try {
-            const response = await deleteStudent(isu); // DELETE API
+            const response = await deleteStudent(isu); 
             if (response.ok || response.status === 204) {
                 document.getElementById("student-dossier").style.display = "none";
-                renderTable(); // Refresh table
+                renderTable(); 
             } else {
                 alert("The student could not be deleted (perhaps they were not found)!");
             }
